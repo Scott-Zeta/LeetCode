@@ -2,6 +2,18 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class App {
+    public static boolean isSubsequence_advance(String s, String t) {
+        int left = 0;
+        int right = 0;
+        while (left < s.length() && right < t.length()) {
+            if (s.charAt(left) == t.charAt(right)) {
+                left++;
+            }
+            right++;
+        }
+        return left == s.length();
+    }
+
     public static boolean isSubsequence(String s, String t) {
         if (s.isEmpty()) {
             return true;
