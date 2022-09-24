@@ -2,8 +2,9 @@ public class App {
     public static int search(int[] nums, int target) {
         int left = 0;
         int right = nums.length - 1;
-        int mid = (right - left) / 2;
+
         while (right - left >= 0) {
+            int mid = left + (right - left) / 2;
             if (nums[mid] == target) {
                 return mid;
             } else if (nums[mid] > target) {
@@ -11,7 +12,6 @@ public class App {
             } else {
                 left = mid + 1;
             }
-            mid = (left + right) / 2;
         }
         return -1;
     }
