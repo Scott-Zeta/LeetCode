@@ -31,6 +31,24 @@ public class App {
         }
     }
 
+    //two pointer with better description
+    public void moveZeroesC(int[] nums) {
+
+        int j = 0;
+
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != 0) {
+                nums[j] = nums[i];
+                j++;
+            }
+        }
+
+        for (int k = j; k < nums.length; k++) {
+            nums[k] = 0;
+        }
+
+    }
+
     public static void main(String[] args) throws Exception {
         int[] nums = { 0 };// length 7
         moveZeroes(nums);
