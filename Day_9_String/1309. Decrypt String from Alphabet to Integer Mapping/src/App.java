@@ -1,11 +1,10 @@
 public class App {
     public static String freqAlphabets(String s) {
-        // This is fucking too slow and dizzy!!!!!!
+        // This is fucking dizzy!!!!!!
         StringBuilder sb = new StringBuilder();
         for (int i = s.length() - 1; i > -1; i--) {
             if (s.charAt(i) == '#') {
                 int c = (((int) s.charAt(i - 1) - 48) + ((int) s.charAt(i - 2) - 48) * 10) + 96;
-                System.out.println(c);
                 sb.append((char) c);
                 i -= 2;
             } else {
@@ -18,6 +17,7 @@ public class App {
     }
 
     public String BetterfreqAlphabets(String s) {
+        //looks better and understandable
         StringBuffer sb = new StringBuffer();
         int n = s.length();
         int pos = n - 1;// last
