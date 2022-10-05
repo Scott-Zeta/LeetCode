@@ -48,6 +48,15 @@ public class App {
         }
     }
 
+    public int BettergetDecimalValue(ListNode head) {
+        int sum = 0;
+        while(head != null){
+            sum *= 2;
+            sum += head.val;
+            head = head.next;
+        }
+        return sum;
+    }
     public static void main(String[] args) throws Exception {
         System.out.println("Hello, World!");
     }
