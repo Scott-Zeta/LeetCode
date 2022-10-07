@@ -13,6 +13,8 @@ public class App {
         int p1 = 0;
         int p2 = 0;
 
+        //since sometimes need to skip the copy array, queue can not work in here
+
         // Compare elements from nums1Copy and nums2 and write the smallest to nums1.
         for (int p = 0; p < m + n; p++) {
             // We also need to ensure that p1 and p2 aren't over the boundaries
