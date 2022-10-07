@@ -12,7 +12,7 @@ public class App {
             map.put(target - nums[i], i);
         }
         return result;
-    }
+    }//4-10ms
 
     public int[] WithoutHashMaptwoSum(int[] nums, int target) {
         for (int i = 1; i < nums.length; i++) {
@@ -23,7 +23,20 @@ public class App {
             }
         }
         return null;
-    }
+    }//0-2ms
+    //I don't understand why this similar brute force takes so short time
+
+    public int[] BruteForcetwoSum(int[] nums, int target) {
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                if (nums[j] == target - nums[i]) {
+                    return new int[] { i, j };
+                }
+            }
+        }
+        // In case there is no solution, we'll just return null
+        return null;
+    }//114ms
 
     public static void main(String[] args) throws Exception {
         System.out.println("Hello, World!");
