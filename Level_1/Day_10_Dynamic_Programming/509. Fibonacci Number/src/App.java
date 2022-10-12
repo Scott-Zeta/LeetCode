@@ -1,6 +1,6 @@
 public class App {
 
-    public static int number(int n) {
+    public static int fib(int n) {
         int[] result = list(n);
         return result[n];
     }
@@ -20,7 +20,7 @@ public class App {
     }
 
     public static void main(String[] args) throws Exception {
-        int query = number(9);
+        int query = fib(9);
         System.out.println(query);
         System.out.println("Hello, World!");
     }
