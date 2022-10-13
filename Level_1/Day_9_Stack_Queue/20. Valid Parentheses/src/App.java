@@ -49,6 +49,24 @@ public class App {
         return false;
     }
 
+    public boolean BetterisValid(String s) {
+        HashMap<Character,Character> maps=new HashMap<Character,Character>();
+        maps.put(')','(');
+        maps.put(']','[');
+        maps.put('}','{');
+        //can use hash map as match up dictionary
+        Stack<Character> stack=new Stack<Character>();
+        for(int i=0;i<s.length();i++){
+            char c=s.charAt(i);
+            if(maps.containsKey(c)){
+                if(stack.empty()||stack.pop()!=maps.get(c))return false;
+            }
+            else
+                stack.push(c);
+        }
+        return stack.empty();
+    }
+
     public static void main(String[] args) throws Exception {
         System.out.println(isValid("{[}]"));
         System.out.println("Hello, World!");
