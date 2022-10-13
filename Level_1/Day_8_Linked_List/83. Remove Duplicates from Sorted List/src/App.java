@@ -18,11 +18,11 @@ class ListNode {
 public class App {
     public ListNode deleteDuplicates(ListNode head) {
         ListNode pointer = head;
-        
-        while(pointer != null){
+
+        while (pointer != null) {
             ListNode dup = pointer.next;
 
-            while(dup.val == pointer.val){
+            while (dup != null && dup.val == pointer.val) {
                 dup = dup.next;
             }
             pointer.next = dup;
