@@ -44,6 +44,7 @@ public class App {
             // from the left side of the window
             if (i >= np) {
                 sCount[s.charAt(i - np) - 'a']--;
+                //remove the previous first letter from table
             }
             // compare array in the sliding window
             // with the reference array
