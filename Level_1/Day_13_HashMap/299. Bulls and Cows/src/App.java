@@ -10,7 +10,7 @@ public class App {
 
         for (int i = 0; i < secret.length(); i++) {
             int c = secret.charAt(i) - '0';
-            
+
             position.put(i, c);
             secretCount[c]++;
         }
@@ -26,13 +26,40 @@ public class App {
                 bull++;
             }
         }
-        result.append(bull + "A" + (bullCowSum-bull) + "B");
+        result.append(bull + "A" + (bullCowSum - bull) + "B");
         result.append("A");
-        result.append(bullCowSum-bull);
+        result.append(bullCowSum - bull);
         result.append("B");
         return result.toString();
     }
 
+    public String OnePassgetHint(String secret, String guess) {
+        int[] h = new int[10];
+
+        int bulls = 0, cows = 0;
+        int n = guess.length();
+        for (int idx = 0; idx < n; ++idx) {
+            char s = secret.charAt(idx);
+            char g = guess.charAt(idx);
+            if (s == g) {
+                bulls++;
+            } else {
+                if (h[s - '0'] < 0)
+                    cows++;
+                if (h[g - '0'] > 0)
+                    cows++;
+                h[s - '0']++;
+                h[g - '0']--;
+            }
+        }
+
+        StringBuilder sb = new StringBuilder();
+        sb.append(bulls);
+        sb.append("A");
+        sb.append(cows);
+        sb.append("B");
+        return sb.toString();
+    }
 
     public static void main(String[] args) throws Exception {
         System.out.println(getHint("1123", "0111"));

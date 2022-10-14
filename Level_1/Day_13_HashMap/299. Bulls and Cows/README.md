@@ -35,6 +35,46 @@ Constraints:
 secret.length == guess.length
 secret and guess consist of digits only.
 
+
+Approach 2: One Pass
+Intuition
+
+Let's optimize approach 1 by building the hashmap during the strings' parsing. That would allow us to reduce the number of passes to one.
+
+Algorithm
+
+Initialize the number of bulls and cows to zero.
+
+Initialize the hashmap to count characters. During the iteration, secret string gives a positive contribution, and guess - negative contribution.
+
+Iterate over the strings: s is the current character in the string secret and g - the current character in the string guess.
+
+If s == g, update bulls counter: bulls += 1.
+
+Otherwise, if s != g:
+
+Update cows by adding 1 if so far guess contains more s characters than secret: h[s] < 0.
+
+Update cows by adding 1 if so far secret contains more g characters than guess: h[g] > 0.
+
+Update the hashmap by marking the presence of s character in the string secret: h[s] += 1.
+
+Update the hashmap by marking the presence of g character in the string guess: h[g] -= 1.
+
+Return the number of bulls and cows.
+
+Implementation
+
+
+To further optimize the Java solution, one could use an array instead of hashmap because there are known problems with Java HashMap performance. Another small improvement is to replace string concatenation by a StringBuilder.
+
+
+Complexity Analysis
+
+Time complexity: \mathcal{O}(N)O(N), we do one pass over the strings.
+
+Space complexity: \mathcal{O}(1)O(1) to keep hashmap (or array) h which contains at most 10 elements.
+
 ## Getting Started
 
 Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
