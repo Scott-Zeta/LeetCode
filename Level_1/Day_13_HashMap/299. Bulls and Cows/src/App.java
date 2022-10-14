@@ -50,6 +50,9 @@ public class App {
                     cows++;
                 h[s - '0']++;
                 h[g - '0']--;
+                // well, the core is more like some kind of dynamic balance
+                // similar to accounting
+                // if we owe the secret, then when guess appear, we can ad a cow
             }
         }
 
