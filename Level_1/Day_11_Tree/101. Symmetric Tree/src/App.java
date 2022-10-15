@@ -24,8 +24,9 @@ public class App {
         List<Integer> leftList = new ArrayList<>();
         List<Integer> rightList = new ArrayList<>();
         preOrder(root.left, leftList);
-        preOrder(root.right, rightList);
-
+        mirrorpreOrder(root.right, rightList);
+        System.out.println(leftList.toString());
+        System.out.println(rightList.toString());
         return leftList.equals(rightList);
     }
 
