@@ -1,3 +1,5 @@
+import java.util.*;
+
 class TreeNode {
     int val;
     TreeNode left;
@@ -19,25 +21,29 @@ class TreeNode {
 
 public class App {
     public boolean isSymmetric(TreeNode root) {
-        preOrder(root.left);
-        preOrder(root.right);
-        
-        return true;
+        List<Integer> leftList = new ArrayList<>();
+        List<Integer> rightList = new ArrayList<>();
+        preOrder(root.left, leftList);
+        preOrder(root.right, rightList);
+
+        return leftList.equals(rightList);
     }
 
-    public void preOrder(TreeNode node){
-        if(node != null){
-            preOrder(node.left);
-            ///do something
-            preOrder(node.right);
+    public void preOrder(TreeNode node, List<Integer> list) {
+        if (node != null) {
+            preOrder(node.left, list);
+            /// do something
+            list.add(node.val);
+            preOrder(node.right, list);
         }
     }
 
-    public void mirrorpreOrder(TreeNode node){
-        if(node != null){
-            mirrorpreOrder(node.right);
-            //do something
-            mirrorpreOrder(node.left);
+    public void mirrorpreOrder(TreeNode node, List<Integer> list) {
+        if (node != null) {
+            mirrorpreOrder(node.right, list);
+            // do something
+            list.add(node.val);
+            mirrorpreOrder(node.left, list);
         }
     }
 
