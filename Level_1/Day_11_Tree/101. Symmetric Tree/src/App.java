@@ -20,7 +20,7 @@ class TreeNode {
 }
 
 public class App {
-    public boolean isSymmetric(TreeNode root) {
+    public boolean NotCorrectIsSymmetric(TreeNode root) {
         List<Integer> leftList = new ArrayList<>();
         List<Integer> rightList = new ArrayList<>();
         preOrder(root.left, leftList);
@@ -33,7 +33,6 @@ public class App {
     public void preOrder(TreeNode node, List<Integer> list) {
         if (node != null) {
             preOrder(node.left, list);
-            /// do something
             list.add(node.val);
             preOrder(node.right, list);
         }
@@ -42,11 +41,28 @@ public class App {
     public void mirrorpreOrder(TreeNode node, List<Integer> list) {
         if (node != null) {
             mirrorpreOrder(node.right, list);
-            // do something
             list.add(node.val);
             mirrorpreOrder(node.left, list);
         }
     }
+    // It's better to do recursion at the same time with two sub node
+
+    public boolean isSymmetric(TreeNode root) {
+        return mirror(root, root);
+    }
+
+    public boolean mirror(TreeNode node1, TreeNode node2) {
+        if (node1 == null && node2 == null) {
+            return true;
+        }
+        if (node1 == null || node2 == null) {
+            return false;
+        }
+
+        return (node1.val == node2.val) && mirror(node1.left, node2.right)
+                && mirror(node1.right, node2.left);
+    }
+    //chain the boolean
 
     public static void main(String[] args) throws Exception {
         System.out.println("Hello, World!");
