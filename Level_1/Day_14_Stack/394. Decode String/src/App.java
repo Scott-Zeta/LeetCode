@@ -63,12 +63,17 @@ public class App {
                 // push previous string builder? but with an empty one when first or only one
                 // no, the current stringbuilder won't dissappear
                 //don't think thi is correct
+                //wait, so that actually is a place holder String builder?
+                content.push(sb);
+                //push the previous StringBuilder, then preapare a new one for coming content?
+                sb = new StringBuilder();
             } else if (c == ']') {
                 // start building string
-                StringBuilder decode = sb;
+                StringBuilder decode = content.pop();
                 for (int popk = count.pop(); popk > 0; popk--) {
                     decode.append(sb);
                 }
+                //put the decode content into next StringBuilder for the next round coming nested brackets?
                 sb = decode;
             } else {
                 // recording content
