@@ -21,6 +21,25 @@ class TreeNode {
 
 public class App {
     public boolean findTarget(TreeNode root, int k) {
+        Set<Integer> set = new HashSet<>();
+        return find(root, set, k);
+    }
+
+    public boolean find(TreeNode node, Set<Integer> set, int k) {
+        if (node == null) {
+            // means this branch to leaf doesnot hash what looking for
+            return false;
+        } else {
+            if (set.contains(node.val)) {
+                return true;
+            }
+            set.add(k - node.val);
+        }
+        // use logic operator chain them up
+        return find(node.left, set, k) || find(node.right, set, k);
+    }
+
+    public boolean ListfindTarget(TreeNode root, int k) {
         // since binary tree is inorder, can use list two pointer approach
         List<Integer> list = new ArrayList<>();
         inOrder(root, list);
