@@ -2,7 +2,7 @@ public class App {
     public static int guessNumber(int n) {
         int left = 1;
         int right = n;
-        while (left < right) {
+        while (left <= right) {
             int mid = left + (right - left) / 2;
             int result = guessWhat(mid, 428);
             if (result == 0) {
