@@ -1,20 +1,17 @@
 public class App {
     public boolean isPerfectSquare(int num) {
-        long left = 1;
-        long right = num;
+        int left = 1;
+        int right = num;
         while (right >= left) {
-            long mid = left + (right - left) / 2;
-            if (num == mid * mid) {
+            int mid = left + (right - left) / 2;
+            if (mid == num/mid && num % mid ==0) {
                 return true;
             }
-            if (num > mid * mid) {
+            if (mid < num/mid) {
                 left = mid + 1;
             } else {
                 right = mid - 1;
             }
-            System.out.println(left);
-            System.out.println(right);
-            System.out.println("-----------");
         }
         return false;
     }
