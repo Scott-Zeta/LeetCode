@@ -10,6 +10,7 @@ public class App {
         int leftMost = -1;
         int left = 0;
         int right = nums.length -1;
+        System.out.println("find left most");
         while(left < right){
             int mid = left + (right -left)/2;
             if(nums[mid] > target){
@@ -19,6 +20,7 @@ public class App {
             }else{
                 //??????
                 leftMost = mid;
+                right = mid -1;
             }
             System.out.println("left: " +left);
             System.out.println("right: " + right);
@@ -33,7 +35,7 @@ public class App {
     }
 
     public static void main(String[] args) throws Exception {
-        int[] nums = {1,2,3,3,4,6,6,6,7,8};
+        int[] nums = {0,1,2,2,4,6,6,6,7,8};
         int[] result = searchRange(nums, 6);
         System.out.println(result[0]);
         System.out.println(result[1]);
