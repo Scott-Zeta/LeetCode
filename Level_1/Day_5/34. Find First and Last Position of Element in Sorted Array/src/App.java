@@ -10,6 +10,7 @@ public class App {
         int leftMost = -1;
         int left = 0;
         int right = nums.length -1;
+        int count = 0;
         System.out.println("find left most");
         while(left < right){
             int mid = left + (right -left)/2;
@@ -19,9 +20,12 @@ public class App {
                 left = mid + 1;
             }else{
                 //??????
+                System.out.println("found");
                 leftMost = mid;
                 right = mid -1;
             }
+            count++;
+            System.out.println("Iterate " + count + "times");
             System.out.println("left: " +left);
             System.out.println("right: " + right);
             System.out.println("mid:" + mid);
@@ -31,8 +35,33 @@ public class App {
 
     public static int findRight(int[] nums, int target) {
         int rightMost = -1;
+        int left = 0;
+        int right = nums.length -1;
+        int count = 0;
+        System.out.println("find right most");
+        while(left < right){
+            int mid = left + (right -left)/2;
+            if(nums[mid] > target){
+                right = mid - 1;
+            }else if(nums[mid] < target){
+                left = mid + 1;
+            }else{
+                //??????
+                System.out.println("found");
+                rightMost = mid;
+                left = mid + 1;
+            }
+            count++;
+            System.out.println("Iterate " + count + "times");
+            System.out.println("left: " +left);
+            System.out.println("right: " + right);
+            System.out.println("mid:" + mid);
+        }
         return rightMost;
     }
+
+    //with multiple continuse target, left and right will drop
+    //on the left Most and right Most
 
     public static void main(String[] args) throws Exception {
         int[] nums = {0,1,2,2,4,6,6,6,7,8};
