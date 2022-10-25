@@ -1,7 +1,7 @@
 public class App {
     public static int arrangeCoins(int n) {
         int count = 1;
-        while (n > 0) {
+        while (n >= 0) {
             n = n - count;
             count++;
         }
