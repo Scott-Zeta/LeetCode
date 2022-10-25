@@ -12,7 +12,7 @@ public class App {
         int right = nums.length -1;
         int count = 0;
         System.out.println("find left most");
-        while(left < right){
+        while(left <= right){
             int mid = left + (right -left)/2;
             if(nums[mid] > target){
                 right = mid - 1;
@@ -39,7 +39,7 @@ public class App {
         int right = nums.length -1;
         int count = 0;
         System.out.println("find right most");
-        while(left < right){
+        while(left <= right){
             int mid = left + (right -left)/2;
             if(nums[mid] > target){
                 right = mid - 1;
@@ -61,7 +61,8 @@ public class App {
     }
 
     //with multiple continuse target, left and right will drop
-    //on the left Most and right Most
+    //on the left Most and right Most,and cause an infinity loop
+    //manully edit the right and left position to get the left and right most 
 
     public static void main(String[] args) throws Exception {
         int[] nums = {0,1,2,2,4,6,6,6,7,8};
