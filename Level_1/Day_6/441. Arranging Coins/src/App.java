@@ -26,6 +26,10 @@ public class App {
         return (int)right;
       }
 
+      public int MathArrangeCoins(int n) {
+        return (int)(Math.sqrt(2 * (long)n + 0.25) - 0.5);
+      }
+
     public static void main(String[] args) throws Exception {
         System.out.println(arrangeCoins(11));
         System.out.println("Hello, World!");
