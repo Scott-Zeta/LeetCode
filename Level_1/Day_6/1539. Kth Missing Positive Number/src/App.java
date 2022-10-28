@@ -23,6 +23,28 @@ public class App {
         return arr[arr.length - 1] + k;
     }
 
+    public int binaryFind(int[] arr, int k) {
+        int left = 0, right = arr.length - 1;
+        while (left <= right) {
+            int pivot = left + (right - left) / 2;
+
+            if (arr[pivot] - pivot - 1 < k) {
+                left = pivot + 1;
+            } else {
+                right = pivot - 1;
+            }
+        }
+
+        // core
+        // At the end of the loop, left = right + 1,
+        // and the kth missing is in-between arr[right] and arr[left].
+        // The number of integers missing before arr[right] is
+        // arr[right] - right - 1 -->
+        // the number to return is
+        // arr[right] + k - (arr[right] - right - 1) = k + left
+        return left + k;
+    }
+
     public static void main(String[] args) throws Exception {
         System.out.println("Hello, World!");
     }
