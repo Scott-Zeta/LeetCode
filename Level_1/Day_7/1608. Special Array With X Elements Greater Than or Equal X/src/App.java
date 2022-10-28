@@ -1,6 +1,8 @@
 public class App {
     public int specialArray(int[] nums) {
         int left = 0;
+        //Core: why it is num.length?
+        //you are searching for how many, not elements itself
         int right = nums.length;
         while (right >= left) {
             int mid = left + (right - left) / 2;
