@@ -23,18 +23,25 @@ public class App {
         return result;
     }
 
-    public int findZero(int[] nums) {
+    public static int findZero(int[] nums) {
         int left = 0;
         int right = nums.length - 1;
         while (left <= right) {
             int mid = left + (right - left) / 2;
-            if (nums[mid] < 0 && nums[mid + 1] > 0) {
+            if (nums[mid] < 0 && nums[mid + 1] >= 0) {
                 return mid;
+            }else if(nums[mid] < 0 && nums[mid + 1] < 0){
+                left = mid + 1;
+            }else{
+                right = mid - 1;
             }
         }
+        return 0;
     }
 
     public static void main(String[] args) throws Exception {
+        int[] arr1 = {-9,-2,1,3,10};
+        System.out.println(findZero(arr1));
         System.out.println("Hello, World!");
     }
 }
