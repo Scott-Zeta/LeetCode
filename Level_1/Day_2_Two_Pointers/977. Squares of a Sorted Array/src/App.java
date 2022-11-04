@@ -54,6 +54,28 @@ public class App {
         return 0;
     }
 
+    // No, actually you don't need to write those binary search bullshit.
+    // just put two pointer at the head and rear instead of zero point.
+    // also less array index overflow risk
+
+    public int[] RearsortedSquares(int[] nums) {
+        int n = nums.length;
+        int[] result = new int[n];
+        int left = 0;
+        int right = n - 1;
+        for (int i = 0; i < n; i++) {
+            if (-nums[left] > nums[right]) {
+                result[n - 1 - i] = nums[left] * nums[left];
+                left++;
+            } else {
+                result[n - 1 - i] = nums[right] * nums[right];
+                right--;
+            }
+        }
+
+        return result;
+    }
+
     public static void main(String[] args) throws Exception {
         int[] arr1 = { -9, -2, 1, 3, 10 };
         System.out.println(findZero(arr1));
