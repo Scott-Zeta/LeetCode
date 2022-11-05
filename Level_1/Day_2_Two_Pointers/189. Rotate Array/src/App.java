@@ -16,8 +16,20 @@ public class App {
         }
     }
 
-    public static void rotate(int[] nums, int k){
-        
+    public static void rotate(int[] nums, int k) {
+        // well, I think my understanding was wrong
+        // do not need to recur the rotating process
+        // last time my array asign has problem
+        // should assign every element of the array
+        // not just assign the address.
+        int n = nums.length;
+        int[] result = new int[n];
+        for (int i = 0; i < n; i++) {
+            result[(i + k) % n] = nums[i];
+        }
+        for (int i = 0; i < n; i++) {
+            nums[i] = result[i];
+        }
     }
 
     public static void main(String[] args) throws Exception {
