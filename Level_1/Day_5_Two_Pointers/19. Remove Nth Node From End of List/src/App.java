@@ -25,8 +25,12 @@ public class App {
         for (int i = 0; i < n; i++) {
             rear = rear.next;
         }
-        if (rear.next == null) {
-            head = head.next;
+        if (rear == null) {
+            if (n == 1) {
+                head.next = null;
+            } else {
+                head = head.next;
+            }
             return head;
         }
         while (rear.next != null) {
