@@ -3,6 +3,10 @@
 SELECT
 	FirstName,
 	LastName,
-	Email
+	Email AS 'Email Address'
 FROM
 	Customer
+ORDER BY
+	FirstName ASC,
+	LastName DESC
+LIMIT 10

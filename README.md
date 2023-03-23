@@ -7,3 +7,14 @@ for column
 
 ## From
 for table
+
+## AS
+for customize the column name
+
+## ORDER BY
+order by, can be ```ASC``` and ```DESC```
+
+## LIMIT
+LIMIT + x
+limit the result with x lines
+head()
