@@ -18,3 +18,62 @@ order by, can be ```ASC``` and ```DESC```
 LIMIT + x
 limit the result with x lines
 head()
+
+## WHERE
+fillter with operator
+```
+WHERE
+ total = 1.98
+```
+from 1.98 to 5
+```
+WHERE
+ total BETWEEN 1.98 AND 5
+```
+Excatly 1.98 or 3.6?
+```
+WHERE
+ total IN(1.98, 3.6)
+```
+
+## LIKE
+not exact match result
+(case insensitive)
+Billing city start with B
+```
+WHERE
+ BillingCity LIKE 'B%'
+```
+
+## DATE
+only care about the date but not include the time
+```
+DATE(timeColumn) = '2023-03-26'
+```
+
+## AND, OR
+logic operator
+
+time after this day, and total less than 3
+```
+WHERE
+DATE(timeColumn) > '2023-03-26' AND total < 3.00
+```
+
+## CASE THEN ELSE
+if else statement
+``` 
+SELECT 
+    FirstName, 
+    LastName, 
+    Company, 
+    Country, 
+    CASE 
+        WHEN Country = 'USA' THEN 'Local' 
+        ELSE 'Global' 
+    END AS Region 
+FROM 
+    Customer 
+ORDER BY 
+    Region 
+```
