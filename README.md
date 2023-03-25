@@ -36,6 +36,10 @@ WHERE
  total IN(1.98, 3.6)
 ```
 
+## HAVING
+more mathmetic filter
+WHERE and GROUP BY always comes before HAVING
+
 ## LIKE
 not exact match result
 (case insensitive)
