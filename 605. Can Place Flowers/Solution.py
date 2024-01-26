@@ -5,15 +5,13 @@ class Solution(object):
         :type n: int
         :rtype: bool
         """
+        # Padding the edges with 0
+        flowerbed = [0] + flowerbed + [0]
         count, slot = 0, 0
-        for i in range(len(flowerbed)):
-          if flowerbed[i] == 0:
+        for i in flowerbed:
+          if i == 0:
             count += 1
-            if i == 0:
-              count += 1
-            if i == len(flowerbed) - 1:
-              count += 1
-            if count >= 3:
+            if count == 3:
               slot += 1
               count = 1
           else:
