@@ -23,5 +23,5 @@ public class Solution
   }
 }
 
-Solution test = new Solution();
-Console.WriteLine(test.FindMaxConsecutiveOnes(new int[] { 1, 1, 0, 1, 1, 1 }));
+Solution test = new();
+Internal.Console.WriteLine(test.FindMaxConsecutiveOnes(new int[] { 1, 1, 0, 1, 1, 1 }).ToString());
