@@ -21,4 +21,4 @@ public class Solution
 
 Solution test = new();
 
-Console.WriteLine(string.Join(" ", test.FizzBuzz(15)));
+Internal.Console.WriteLine(string.Join(" ", test.FizzBuzz(15)));
