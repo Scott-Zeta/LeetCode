@@ -7,40 +7,32 @@ class Solution(object):
         if len(nums) == 1:
             return 1
         count = 0
-        sum_arraies = []
+        sum_arrays = []
         sub_sum_array = []
         for i in range(len(nums)):
-            if i == len(nums) - 1:
-                if nums[i] == 0:
-                   sub_sum_array.append(count)
-                   count = 0
-                   sub_sum_array.append(count)
-                   sum_arraies.append(sub_sum_array)
-                if nums[i] == 1:
-                    count += 1
-                    sub_sum_array.append(count)
-                    sum_arraies.append(sub_sum_array)
-            else:        
-                if nums[i] == 1:
-                    count += 1
-                if nums[i] == 0:
-                    sub_sum_array.append(count)
-                    count = 0
-                    if nums[i+1] == 0:
-                        sub_sum_array.append(count)
-                        sum_arraies.append(sub_sum_array)
-                        sub_sum_array = []
-        #print(sum_arraies)
+            if nums[i] == 1:
+                count += 1
+            else:
+                sub_sum_array.append(count)
+                count = 0
+                if i == len(nums) - 1 or nums[i + 1] == 0:
+                    sub_sum_array.append(count)  # Append zero if next is zero or end of array
+                    sum_arrays.append(sub_sum_array)
+                    sub_sum_array = []
+        if count > 0:  # Add last segment if ended with 1's
+            sub_sum_array.append(count)
+            sum_arrays.append(sub_sum_array)
+        print(sum_arrays)
         
-        max = 0
-        for array in sum_arraies:
+        max_consecutive = 0
+        for array in sum_arrays:
             if len(array) == 1:
                 return array[0]
             for i in range(len(array) - 1):
                 consecutive = array[i] + array[i+1] + 1
-                if consecutive > max:
-                    max = consecutive
-        return max
+                if consecutive > max_consecutive:
+                    max_consecutive = consecutive
+        return max_consecutive
         
         
 test = Solution()
