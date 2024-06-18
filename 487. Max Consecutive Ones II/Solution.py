@@ -33,7 +33,18 @@ class Solution(object):
                 if consecutive > max_consecutive:
                     max_consecutive = consecutive
         return max_consecutive
-        
+    
+    def findMaxConsecutiveOnes_slider(self, nums):
+        max_consecutive = 0
+        left_zero_pointer = 0
+        right_zero_pointer = 0
+        for i in range(len(nums)):
+            right_zero_pointer += 1
+            if nums[i] == 0:
+                left_zero_pointer = right_zero_pointer
+                right_zero_pointer = 0
+            max_consecutive = max(max_consecutive,left_zero_pointer+right_zero_pointer)
+        return max_consecutive
         
 test = Solution()
 print(test.findMaxConsecutiveOnes([1,0,1,1,0]))
