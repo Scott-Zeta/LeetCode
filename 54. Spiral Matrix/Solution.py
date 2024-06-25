@@ -27,6 +27,8 @@ class Solution(object):
                 res.append(matrix[i][j])
                 print(f"({i},{j}):{matrix[i][j]}")
             x -=1
+            if y == 0:
+                x = 0
             print(f"x,y:{x},{y}")
 
             # Move left
@@ -35,6 +37,8 @@ class Solution(object):
                 res.append(matrix[i][j])
                 print(f"({i},{j}):{matrix[i][j]}")
             y -=1
+            if x == 0:
+                y = 0
             print(f"x,y:{x},{y}")
 
             # Move up
@@ -53,4 +57,10 @@ test.spiralOrder([[1,2,3,4],[5,6,7,8],[9,10,11,12]])
 # Case 2
 # test.spiralOrder([[1,2,3],[4,5,6],[7,8,9]])
 # Case 3
-test.spiralOrder([[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]])
+# test.spiralOrder([[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]])
+# Case 4
+# test.spiralOrder([[1,2],[3,4]])
+# Case 5
+# test.spiralOrder([[1,2,3],[4,5,6],[7,8,9],[10,11,12]])
+# Case 6
+test.spiralOrder([[1],[2],[3]])
