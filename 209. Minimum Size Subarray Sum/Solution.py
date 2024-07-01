@@ -6,16 +6,15 @@ class Solution:
         sum = 0
         while tail < len(nums):
             sum += nums[tail]
-            if sum >= target:
-                # If it is possible pop out head number, shrink the subarray
-                while sum - nums[head] >= target:
-                    sum -= nums[head]
-                    head += 1 
+            while sum >= target:
                 distance = tail - head + 1
                 shortest_length = min(distance,shortest_length)
                 # Optimal result, no need to check anymore
                 if shortest_length == 1:
                     return 1
+                # If it is possible pop out head number, shrink the subarray
+                sum -= nums[head]
+                head += 1
             # if sum not enough for target, stretch the tail and subarray length
             tail += 1
         
